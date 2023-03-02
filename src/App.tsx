@@ -1,14 +1,14 @@
-import { useState } from 'react'
-import './App.scss'
+import { useState } from "react";
+import "./App.scss";
+
+import RouterComponent from "./components/router/RouterComponent";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <div className="App">
-      Hi todo <span>app!</span>
+      <RouterComponent />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
