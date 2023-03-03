@@ -1,12 +1,26 @@
 import { queryClient } from "./QueryClient";
-import { addTodo, deleteTodo, getTodos, updateTodo } from "../http/todosApi";
+import {
+  addTodo,
+  deleteTodo,
+  getTodos,
+  todosApi,
+  updateTodo,
+} from "../http/todosApi";
 import { TodoType } from "../types/todo";
-import { useQuery } from "@tanstack/react-query";
 
 const getTodoQuery = {
   queryKey: ["todos"],
   queryFn: getTodos,
   select: (data: TodoType[]) => data.filter((d: TodoType) => d.userId === 1),
+};
+
+const getTodosByGroup = async (
+  groupId: number | null
+): Promise<TodoType[] | null> => {
+  if(!groupId) return null;
+  const res = await todosApi.get<TodoType[]>(`/todos?groupId=${groupId}`);
+  let todos = res.data;
+  return todos;
 };
 
 const addTodoMutationQuery = {
@@ -35,4 +49,5 @@ export {
   updateTodoMutationQuery,
   deleteTodoMutationQuery,
   getTodoQuery,
+  getTodosByGroup,
 };

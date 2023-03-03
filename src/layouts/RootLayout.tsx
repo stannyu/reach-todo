@@ -15,9 +15,9 @@ const RootLayout = () => {
         <Link to="/login" className="nav_link">
           To login
         </Link>
-        <Link to="/user" className="nav_link">
+        {/* <Link to="/user" className="nav_link">
           To User
-        </Link>
+        </Link> */}
         <Link to="/list/2" className="nav_link">
           To specific list
         </Link>
