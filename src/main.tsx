@@ -4,10 +4,13 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { QueryClientProvider } from "@tanstack/react-query";
 
-import App from "./App";
-import "reset-css";
+// Reset css and Tailwind
+import 'reset-css';
 import "./index.scss";
+
+import App from "./App";
 import { queryClient } from "./queries/QueryClient";
+
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
