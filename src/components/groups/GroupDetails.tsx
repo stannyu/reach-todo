@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useGroupById } from "../../queries/groupQueries";
 
-const GroupDetails = () => {
+const GroupDetails = (): React.ReactElement => {
   const { groupId } = useParams();
   // @ts-ignore
   const { data: gr } = useGroupById(groupId);

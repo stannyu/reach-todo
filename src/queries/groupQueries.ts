@@ -16,7 +16,7 @@ const getGroupQuery = {
 };
 
 const useGroupById = (groupId: string) => {
-    return useQuery({ queryKey: ["groups"], queryFn: () => getGroupById(groupId) });
+    return useQuery({ queryKey: ["groups"], queryFn: () => getGroupById(groupId)});
   };
 
 const addGroupMutationQuery = {

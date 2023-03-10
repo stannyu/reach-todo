@@ -1,7 +1,12 @@
 import { queryClient } from "./QueryClient";
-import { addTodo, deleteTodo, getTodos, updateTodo } from "../http/todosApi";
+import {
+  addTodo,
+  deleteTodo,
+  getTodos,
+  todosApi,
+  updateTodo,
+} from "../http/todosApi";
 import { TodoType } from "../types/todo";
-import { useQuery } from "@tanstack/react-query";
 
 const getTodoQuery = {
   queryKey: ["todos"],
