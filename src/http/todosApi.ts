@@ -12,7 +12,7 @@ const getTodosByGroup = async (
   groupId: number | null
 ): Promise<TodoType[] | null> => {
   if(!groupId) return null;
-  const res = await todosApi.get<TodoType[]>(`/todos?groupId=${groupId}`);
+  const res = await todosApi.get<TodoType[]>(`/todos?group=${groupId}`);
   let todos = res.data;
   return todos;
 };
@@ -25,7 +25,7 @@ const updateTodo = async (todo: TodoType) => {
   return await todosApi.patch<TodoType>(`/todos/${todo.id}`, todo);
 };
 
-const deleteTodo = async (todoId: string) => {
+const deleteTodo = async (todoId: number) => {
   return await todosApi.delete(`/todos/${todoId}`);
 };
 

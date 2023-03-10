@@ -29,7 +29,7 @@ const User = (): React.ReactElement => {
   return (
     <div>
       <h1>🙍🏻‍♂️User component:</h1>
-      <nav>
+      {/* <nav>
         <Link to="/" className="link link-info">
           {" "}
           - 🏡 Home
@@ -42,7 +42,7 @@ const User = (): React.ReactElement => {
           {" "}
           - Account
         </Link>
-      </nav>
+      </nav> */}
       {/* <Outlet /> */}
     </div>
   );

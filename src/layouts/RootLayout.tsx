@@ -19,11 +19,6 @@ const RootLayout = () => {
               </Link>
             </li>
             <li>
-              <Link to="/group" className="link link-info">
-                Board
-              </Link>
-            </li>
-            <li>
               <Link to="/login" className="link link-info">
                 To login
               </Link>

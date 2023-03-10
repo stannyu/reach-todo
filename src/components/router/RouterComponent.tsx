@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import BoardComponent from "../board/BoardComponent";
 import GroupDetails from "../groups/GroupDetails";
 
 import { RootLayout } from "../../layouts/RootLayout";
@@ -24,34 +23,17 @@ const RouterComponent = (): JSX.Element => {
           <Route index element={<Root />} />
           <Route path="home" element={<Root />} />
 
-          <Route path="group" element={<BoardComponent />} />
-          {/* <Route
-            path="/list/:groupId"
-            element={
-              <AuthenticatedRoute isSignedIn={false}>
-                <User />
-              </AuthenticatedRoute>
-            }
-          /> */}
+          <Route path="/list/:groupId" element={<GroupDetails />} />
 
+          {/* <Route path="user" element={<AuthenticatedParentRoute isSignedIn={true} />}> */}
           <Route
-            path="/list/:groupId"
-            element={
-              <AuthenticatedRoute isSignedIn={true}>
-                <GroupDetails />
-              </AuthenticatedRoute>
-            }
-          />
-
-          <Route path="user" element={<AuthenticatedParentRoute isSignedIn={true} />}>
-          {/* <Route
             path="user"
             element={
               <AuthenticatedRoute isSignedIn={true}>
                 <UserLayout />
               </AuthenticatedRoute>
             }
-          > */}
+          >
             {/* <Route path="user" element={<User />}> */}
             <Route index element={<User />} />
             <Route path="profile" element={<Profile />} />

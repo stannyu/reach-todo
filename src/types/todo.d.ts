@@ -1,7 +1,7 @@
 export type TodoType = {
   userId: number;
-  id?: string;
+  id?: string | number;
   title: string;
   completed: boolean;
-  groupId: number;
+  group: number;
 };
