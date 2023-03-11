@@ -20,7 +20,7 @@ const addGroup = async (group: GroupType) => {
 };
 
 const updateGroup = async (group: GroupType) => {
-  return await todosApi.patch<GroupType>(`/groups/${group.groupId}`, group);
+  return await todosApi.patch<GroupType>(`/groups/${group.id}`, group);
 };
 
 const deleteGroup = async (groupId: number) => {

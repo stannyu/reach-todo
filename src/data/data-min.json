@@ -1,35 +1,35 @@
 {
   "groups": [
     {
-      "groupId": 1,
+      "id": 1,
       "title": "Personal ToDos"
     },
     {
-      "groupId": 2,
+      "id": 2,
       "title": "Professional ToDos"
     },
     {
-      "groupId": 3,
+      "id": 3,
       "title": "Session Victim"
     },
     {
-      "groupId": 4,
+      "id": 4,
       "title": "The Truth"
     },
     {
-      "groupId": 5,
+      "id": 5,
       "title": "Perspective"
     },
     {
-      "groupId": 6,
+      "id": 6,
       "title": "What you want"
     },
     {
-      "groupId": 7,
+      "id": 7,
       "title": "Other Side"
     },
     {
-      "groupId": 8,
+      "id": 8,
       "title": "Lotus"
     }
   ],
@@ -122,7 +122,7 @@
       "usr": 2,
       "id": 22,
       "title": "distinctio vitae autem nihil ut molestias quo",
-      "completed": true,
+      "completed": false,
       "group": 1
     },
     {
@@ -207,6 +207,13 @@
       "id": 745,
       "title": "sssss",
       "completed": false,
+      "group": 8
+    },
+    {
+      "userId": 7,
+      "id": 966,
+      "title": "dafsdfas",
+      "completed": true,
       "group": 8
     }
   ]
