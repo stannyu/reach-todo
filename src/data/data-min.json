@@ -115,7 +115,7 @@
       "usr": 2,
       "id": 21,
       "title": "suscipit repellat esse quibusdam voluptatem incidunt",
-      "completed": false,
+      "completed": true,
       "group": 1
     },
     {
@@ -171,7 +171,7 @@
       "usr": 7,
       "id": 567,
       "title": "aaaa",
-      "completed": false,
+      "completed": true,
       "group": 3
     },
     {
@@ -192,7 +192,7 @@
       "userId": 2,
       "id": 652,
       "title": "hey hey hey",
-      "completed": true,
+      "completed": false,
       "group": 3
     },
     {
@@ -215,6 +215,13 @@
       "title": "dafsdfas",
       "completed": true,
       "group": 8
+    },
+    {
+      "userId": 8,
+      "id": 531,
+      "title": "jashdkjasdkjash",
+      "completed": false,
+      "group": 6
     }
   ]
 }

@@ -11,7 +11,7 @@ import { TodoType } from "../types/todo";
 const getTodoQuery = {
   queryKey: ["todos"],
   queryFn: getTodos,
-  select: (data: TodoType[]) => data.filter((d: TodoType) => d.userId === 1),
+  // select: (data: TodoType[]) => data.filter((d: TodoType) => d.userId === 1),
 };
 
 const addTodoMutationQuery = {

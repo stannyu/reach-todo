@@ -15,15 +15,15 @@ const getGroupById = async (groupId: string) => {
   return group[0];
 }
 
-const addGroup = async (group: GroupType) => {
+const addGroup = async (group: Omit<GroupType, '_id'>) => {
   return await todosApi.post<GroupType>('/groups', group);
 };
 
 const updateGroup = async (group: GroupType) => {
-  return await todosApi.patch<GroupType>(`/groups/${group.id}`, group);
+  return await todosApi.patch<GroupType>(`/groups/${group._id}`, group);
 };
 
-const deleteGroup = async (groupId: number) => {
+const deleteGroup = async (groupId: string) => {
   return await todosApi.delete(`/groups/${groupId}`);
 };
 

@@ -1,7 +1,11 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
+import axios from "axios";
 import classNames from "classnames";
 import React, { FunctionComponent, useRef } from "react";
-import { addTodoMutationQuery, deleteTodoMutationQuery } from "../../queries/todosQueries";
+import {
+  addTodoMutationQuery,
+  deleteTodoMutationQuery,
+} from "../../queries/todosQueries";
 
 import { TodoType } from "../../types/todo";
 import TodoListItem from "../todos/TodoListItem";
@@ -9,7 +13,7 @@ import TodosList from "../todos/TodosList";
 
 type BoardProps = {
   isSidebarOpen: boolean;
-  activeGroup: number | null;
+  activeGroup: string | null;
   todosData?: TodoType[] | null;
 };
 
@@ -23,7 +27,7 @@ const Board: FunctionComponent<BoardProps> = ({
   todosData,
 }): React.ReactElement => {
   const inputRef = useRef<HTMLInputElement>(null);
-  
+
   const addTodoMutation = useMutation(addTodoMutationQuery);
 
   const handleAddTodo = (e: React.FormEvent) => {
@@ -31,9 +35,7 @@ const Board: FunctionComponent<BoardProps> = ({
 
     if (!inputRef || !inputRef.current || !activeGroup) return;
 
-    const todoToAdd: TodoType = {
-      userId: getRandomInt(1, 10),
-      id: getRandomInt(50, 1000),
+    const todoToAdd: Omit<TodoType, '_id'> = {
       title: inputRef.current.value,
       completed: false,
       group: activeGroup,
@@ -44,12 +46,36 @@ const Board: FunctionComponent<BoardProps> = ({
     inputRef.current.value = "";
   };
 
+  const handleAsync = async () => {
+    // let res1 = await axios.get("https://jsonplaceholder.typicode.com/todos/1");
+    // let res2 = await axios.get("https://jsonplaceholder.typicode.com/todos/2");
+    // let res3 = await axios.get("https://jsonplaceholder.typicode.com/todos/3");
+
+    // console.log('RES --> ', [res1.data, res2.data, res3.data]);
+
+    let result: any = [];
+
+    Promise.allSettled([
+      axios.get("https://jsonplaceholder.typicode.com/todos/1"),
+      axios.get("https://jsonplaceholder.typicode.com/todosdsdas/2"),
+      axios.get("https://jsonplaceholder.typicode.com/todos/3"),
+    ]).then((res) => {
+      // result.push(res.data);
+      res.forEach((r) => result.push(r));
+    });
+
+    console.log(result);
+  };
+
   return (
     <div
       className={classNames("content_area", {
         content_expanded: !isSidebarOpen,
       })}
     >
+      <button className="btn btn-circle btn-primary" onClick={handleAsync}>
+        click
+      </button>
       <div className="input_area">
         <input
           ref={inputRef}
@@ -60,7 +86,9 @@ const Board: FunctionComponent<BoardProps> = ({
         <button className="btn btn-ghost ml-2" onClick={handleAddTodo}>
           Add ToDo
         </button>
-        <h2>{activeGroup ? activeGroup : "no group selected"}</h2>
+        <h2 className="font-mono text-2xl my-3 underline hover:no-underline cursor-pointer">
+          Selected group id: {activeGroup ? activeGroup : "no group selected"}
+        </h2>
         {todosData && todosData.length > 0 && (
           <TodosList todosData={todosData} />
         )}

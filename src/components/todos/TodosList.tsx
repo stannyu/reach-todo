@@ -10,7 +10,7 @@ const TodosList: FunctionComponent<TodosListProps> = ({todosData}): JSX.Element 
   return (
     <>
       {todosData.map((todoEl) => (
-        <TodoListItem todo={todoEl} key={todoEl.id} />
+        <TodoListItem todo={todoEl} key={todoEl._id} />
       ))}
     </>
   );

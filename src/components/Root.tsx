@@ -22,7 +22,7 @@ import TodoListItem from "./todos/TodoListItem";
 
 const Root = (): React.ReactElement => {
   const [isSidebarOpen, setSidebarState] = useState<boolean>(true);
-  const [activeGroup, setActiveGroup] = useState<number | null>(null);
+  const [activeGroup, setActiveGroup] = useState<string | null>(null);
 
   const { data: groupsData, isLoading, isError } = useQuery(getGroupQuery);
 
@@ -37,7 +37,7 @@ const Root = (): React.ReactElement => {
 
   useEffect(() => {
     if (groupsData && groupsData.length > 0) {
-      setActiveGroup(groupsData[0].id);
+      setActiveGroup(groupsData[0]._id);
     }
   }, [groupsData]);
 
@@ -45,7 +45,7 @@ const Root = (): React.ReactElement => {
     setSidebarState(!isSidebarOpen);
   };
 
-  const handleGroupClick = (gorupId: number): void => {
+  const handleGroupClick = (gorupId: string): void => {
     setActiveGroup(gorupId);
   };
 

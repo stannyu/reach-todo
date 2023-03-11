@@ -14,7 +14,7 @@ import {
 type SidebarProps = {
   isSidebarOpen: boolean;
   onHandleSidebarToggel: () => void;
-  onHandleGroupClick: (groupId: number) => void;
+  onHandleGroupClick: (groupId: string) => void;
   isLoading: boolean;
   isError: boolean;
   groupsData?: GroupType[];
@@ -46,8 +46,7 @@ const Sidebar: FunctionComponent<SidebarProps> = ({
     if (!inputRef || !inputRef.current || inputRef.current.value.length === 0)
       return;
 
-    const groupToAdd: GroupType = {
-      id: getRandomInt(50, 10000),
+    const groupToAdd: Omit<GroupType, '_id'> = {
       title: inputRef.current.value,
     };
 
@@ -56,7 +55,7 @@ const Sidebar: FunctionComponent<SidebarProps> = ({
     inputRef.current.value = "";
   };
 
-  const handleDeleteGroup = (groupId: number): void => {
+  const handleDeleteGroup = (groupId: string): void => {
     deleteGroupMutation.mutate(groupId);
   };
 
@@ -92,13 +91,13 @@ const Sidebar: FunctionComponent<SidebarProps> = ({
         groupsData.length > 0 &&
         groupsData.map((group) => (
           <div
-            key={group.id}
+            key={group._id}
             className="menu p-2 shadow bg-base-100 cursor-pointer w-auto hover:bg-slate-200"
-            onClick={() => onHandleGroupClick(group.id)}
+            onClick={() => onHandleGroupClick(group._id)}
           >
             <p className="flex justify-between flex-row">
               {group.title}
-              <span onClick={() => handleDeleteGroup(group.id)}>X</span>
+              <span onClick={() => handleDeleteGroup(group._id)}>X</span>
             </p>
           </div>
         ))}
