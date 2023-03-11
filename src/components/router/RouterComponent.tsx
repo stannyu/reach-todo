@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import loadable from '@loadable/component'
 
 import GroupDetails from "../groups/GroupDetails";
 
@@ -13,6 +14,9 @@ import { User, Account, Profile } from "../user/User";
 import AuthenticatedParentRoute from "../login/AuthenticatedParentRoute";
 import UserLayout from "../../layouts/UserLayout";
 
+
+const LoadableRoot = loadable(() => import("../Root"));
+
 const RouterComponent = (): JSX.Element => {
   return (
     <>
@@ -20,8 +24,8 @@ const RouterComponent = (): JSX.Element => {
         <Route path="/login" element={<LoginComponent />} />
 
         <Route path="/" element={<RootLayout />}>
-          <Route index element={<Root />} />
-          <Route path="home" element={<Root />} />
+          <Route index element={<LoadableRoot />} />
+          <Route path="home" element={<LoadableRoot />}/>
 
           <Route path="/list/:groupId" element={<GroupDetails />} />
 

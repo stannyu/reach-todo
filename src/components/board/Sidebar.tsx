@@ -2,7 +2,6 @@ import { useQuery } from "@tanstack/react-query";
 import React, { FunctionComponent } from "react";
 import classNames from "classnames";
 
-import { getGroupQuery } from "../../queries/groupQueries";
 import MenuIcon from "../icons/MenuIcon";
 import CloseIcon from "../icons/CloseIcon";
 import { GroupType } from "../../types/group";

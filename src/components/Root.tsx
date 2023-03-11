@@ -37,7 +37,7 @@ const Root = (): React.ReactElement => {
 
   useEffect(() => {
     if (groupsData && groupsData.length > 0) {
-      setActiveGroup(groupsData[1].groupId);
+      setActiveGroup(groupsData[0].groupId);
     }
   }, [groupsData]);
 
