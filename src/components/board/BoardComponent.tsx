@@ -55,6 +55,10 @@ const Board: FunctionComponent<BoardProps> = ({
 
     let result: any = [];
 
+    // Promise all --> wait everyone and 1 error result in error
+    // allSettled  --> wait everything and deliver data & errors
+    // race        --> wait only for the 1 one to finish, return data || error on this one
+    // any         --> wait for first successfull, return only data
     Promise.allSettled([
       axios.get("https://jsonplaceholder.typicode.com/todos/1"),
       axios.get("https://jsonplaceholder.typicode.com/todosdsdas/2"),

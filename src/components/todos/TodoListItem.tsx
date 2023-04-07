@@ -21,8 +21,8 @@ const TodoListItem: FunctionComponent<ToDoItemProps> = ({
   };
 
   const deleteTodoHandler = (): void => {
-    if (todo.id) {
-      deleteTodoMutation.mutate(Number(todo.id));
+    if (todo._id) {
+      deleteTodoMutation.mutate(todo._id);
     }
   };
 
